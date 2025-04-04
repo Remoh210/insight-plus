@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\User\Desktop\Workspace\insight-plus\src\source\buffer.cpp">
+      <Filter>Sources\source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Workspace\insight-plus\src\source\console.cpp">
+      <Filter>Sources\source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Workspace\insight-plus\src\source\fileOutput.cpp">
+      <Filter>Sources\source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Workspace\insight-plus\src\source\filter.cpp">
+      <Filter>Sources\source</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\User\Desktop\Workspace\insight-plus\src\source\main.cpp">
+      <Filter>Sources\source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\User\Desktop\Workspace\insight-plus\src\headers\buffer.h">
+      <Filter>Sources\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Workspace\insight-plus\src\headers\console.h">
+      <Filter>Sources\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Workspace\insight-plus\src\headers\fileoutput.h">
+      <Filter>Sources\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Workspace\insight-plus\src\headers\filter.h">
+      <Filter>Sources\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\User\Desktop\Workspace\insight-plus\src\headers\outputStrategy.h">
+      <Filter>Sources\headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\User\Desktop\Workspace\insight-plus\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{5BEC5383-12A4-3DBC-ACBE-EBEC6DE3BB63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\headers">
+      <UniqueIdentifier>{78D8D068-14E7-3253-9E97-0DD37B310D10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\source">
+      <UniqueIdentifier>{80AD3F47-86BD-3BE5-80C5-512411F6A7BE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
