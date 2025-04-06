@@ -18,8 +18,12 @@ namespace insight_plus
 {
     void GlfwDrawStrategy::Setup()
     {
-        const char* glsl_version = "#version 130";
-
+    #if defined(__APPLE__)
+        // GL 3.2 + GLSL 150
+        const char* glsl_version = "#version 150";
+    #else
+        const char* glsl_version = "#version 150";
+    #endif
         // Setup Platform/Renderer backends
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);

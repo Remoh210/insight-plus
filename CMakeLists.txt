@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.4)
 project(insight_plus)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -10,7 +10,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Compiler settings
 #--------------------------------------------------------------------
 if(APPLE)
-set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+set(CMAKE_CXX_FLAGS "-std=c++14 -stdlib=libc++")
 endif()
 
 #--------------------------------------------------------------------
