@@ -49,7 +49,15 @@ add_library(${PROJECT_NAME} STATIC ${HEADER_FILES} ${SOURCE_FILES})
 # Link libraries and includes
 #--
 target_link_libraries(${PROJECT_NAME} PRIVATE imgui)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src/headers)
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
+target_link_libraries(${PROJECT_NAME} PRIVATE glad)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/src/headers)
+
+# Set the INTERFACE_INCLUDE_DIRECTORIES to virtualize the include path
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/src/headers"
+)
+
 
 # Macro to preserve source files hierarchy in the IDE
 macro(GroupSources curdir)

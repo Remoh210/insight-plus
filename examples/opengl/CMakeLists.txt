@@ -16,4 +16,5 @@ add_dependencies(opengl_example insight_plus)
 
 target_link_libraries(opengl_example PRIVATE insight_plus)
 target_link_libraries(opengl_example PRIVATE glfw)
+target_link_libraries(opengl_example PRIVATE imgui)
 target_link_libraries(opengl_example PRIVATE glad)

@@ -1,13 +1,16 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include "filter.h"
 #include "buffer.h"
+#include "drawStrategy.h"
+#include "outputStrategy.h"
 
 /*
 *   Usage:
-*   static NxAppLog my_log;
+*   static insight_plus::console my_log;
 *   my_log.AddLog("Hello %d world", 123);
 *   my_log.Draw("title");
 */ 
@@ -20,6 +23,10 @@ namespace insight_plus
         Console()
         {
             AutoScroll = true;
+
+            drawStrategy = nullptr;
+            outputStrategy = nullptr;
+
             Clear();
         }
 
@@ -32,12 +39,26 @@ namespace insight_plus
 
         void AddLog(const char* fmt, ...);
 
-        void Draw(const char* title, bool* p_open = NULL);
+
+        void SetDrawStrategy(std::unique_ptr<iDrawStrategy> StrategyIn) { drawStrategy = std::move(StrategyIn); }
+        void SetOutputStrategy(std::unique_ptr<iOutputStrategy>&& StrategyIn) { outputStrategy = std::move(StrategyIn); }
+
+        // TODO: Call before GLFW Init
+        void Setup();
+        // TODO: Call after GLFW swap
+        void Draw();
+
+        void ShutDown();
 
     private:
-        Buffer     Buf;
-        TextFilter     Filter;
+        void ShowConsole();
+
+        Buffer               Buf;
+        TextFilter           Filter;
         std::vector<int>     LineOffsets; // Index to lines offset. We maintain this with AddLog() calls.
         bool                 AutoScroll;  // Keep scrolling if already at the bottom.
+
+        std::unique_ptr<iDrawStrategy> drawStrategy;
+        std::unique_ptr<iOutputStrategy> outputStrategy;
     };
 }

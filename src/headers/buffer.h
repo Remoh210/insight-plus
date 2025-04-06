@@ -13,7 +13,7 @@ namespace insight_plus
         inline char         operator[](int i) const { assert(Buf.data() != NULL); return Buf[i]; }
         const char*         begin() const           { return Buf.data() ? &Buf.front() : EmptyString; }
         const char*         end() const             { return Buf.data() ? &Buf.back() : EmptyString; } 
-        int                 size() const            { return Buf.size() ? Buf.size() - 1 : 0; }
+        size_t                 size() const            { return Buf.size() ? Buf.size() - 1 : 0; }
         bool                empty() const           { return Buf.size() <= 1; }
         void                clear()                 { Buf.clear(); }
         void                reserve(int capacity)   { Buf.reserve(capacity); }
