@@ -15,6 +15,9 @@
 *   my_log.Draw("title");
 */ 
 
+// Forward declarations
+class ImGuiInputTextCallbackData;
+
 namespace insight_plus
 {
     class Console
@@ -39,6 +42,10 @@ namespace insight_plus
 
         void AddLog(const char* fmt, ...);
 
+        void ClearLog();
+        void ExecCommand(const char* command_line);
+        int TextEditCallback(ImGuiInputTextCallbackData* data);
+
 
         void SetDrawStrategy(std::unique_ptr<iDrawStrategy> StrategyIn) { drawStrategy = std::move(StrategyIn); }
         void SetOutputStrategy(std::unique_ptr<iOutputStrategy>&& StrategyIn) { outputStrategy = std::move(StrategyIn); }
@@ -56,9 +63,18 @@ namespace insight_plus
         void ShowConsole2();
 
         Buffer               Buf;
-        TextFilter           Filter;
+        //TextFilter           Filter;
         std::vector<int>     LineOffsets; // Index to lines offset. We maintain this with AddLog() calls.
-        bool                 AutoScroll;  // Keep scrolling if already at the bottom.
+        //bool                 AutoScroll;  // Keep scrolling if already at the bottom.
+
+        char                     InputBuf[256];
+        std::vector<char*>       Items;
+        std::vector<const char*> Commands;
+        std::vector<char*>       History;
+        int                      HistoryPos;    // -1: new line, 0..History.Size-1 browsing history.
+        TextFilter               Filter;
+        bool                     AutoScroll;
+        bool                     ScrollToBottom;
 
         std::unique_ptr<iDrawStrategy> drawStrategy;
         std::unique_ptr<iOutputStrategy> outputStrategy;
