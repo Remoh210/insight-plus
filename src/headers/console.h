@@ -53,6 +53,8 @@ namespace insight_plus
     private:
         void ShowConsole();
 
+        void ShowConsole2();
+
         Buffer               Buf;
         TextFilter           Filter;
         std::vector<int>     LineOffsets; // Index to lines offset. We maintain this with AddLog() calls.
