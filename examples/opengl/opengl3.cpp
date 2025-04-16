@@ -62,36 +62,26 @@ int main(int, char**)
 
 
     // glad: load all OpenGL function pointers
-// ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
-
+    // Setup
     insight_plus::Console MyConsole;
-
     MyConsole.SetDrawStrategy(std::make_unique<insight_plus::GlfwDrawStrategy>(window));
-
-    // Setup Dear ImGui context
-
     MyConsole.Setup();
-    // Create window and OpenGL context (using GLFW as an example)
-
-
-    // Now OpenGL functions can be called safely
-    //glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    
+    // Usage examples
+    MyConsole.AddLog("Welcome to Insight+");
 
 
     while (!glfwWindowShouldClose(window))
     {
-        // Poll and handle events (inputs, window resize, etc.)
-        // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
-        // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
-        // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or clear/overwrite your copy of the keyboard data.
-        // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
         glfwPollEvents();
+
+        //TODO: Don't need?
         if (glfwGetWindowAttrib(window, GLFW_ICONIFIED) != 0)
         {
             ImGui_ImplGlfw_Sleep(10);
@@ -109,16 +99,18 @@ int main(int, char**)
         glClear(GL_COLOR_BUFFER_BIT);
 
 
-
         //TODO: MOVE
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         glfwSwapBuffers(window);
     }
 
     MyConsole.ShutDown();
+
     // Cleanup
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
+
+    //TODO Move?
     ImGui::DestroyContext();
 
     glfwDestroyWindow(window);

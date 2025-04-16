@@ -1,5 +1,3 @@
-#pragma once
-
 #include "fileoutput.h"
 
 namespace insight_plus

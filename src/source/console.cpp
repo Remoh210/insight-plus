@@ -72,7 +72,6 @@ namespace insight_plus
         Commands.push_back("CLASSIFY");
         AutoScroll = true;
         ScrollToBottom = false;
-        AddLog("Welcome to Dear ImGui!");
     }
     
     void Console::Draw()
@@ -251,9 +250,8 @@ namespace insight_plus
     void Console::ShowConsole2()
     {   
         ImGui::SetNextWindowSize(ImVec2(520, 600), ImGuiCond_FirstUseEver);
-        bool* p_open;
-        *p_open = true;
-        if (!ImGui::Begin("title", p_open))
+        bool p_open = true;
+        if (!ImGui::Begin("title", &p_open))
         {
             ImGui::End();
             return;
@@ -265,7 +263,7 @@ namespace insight_plus
         if (ImGui::BeginPopupContextItem())
         {
             if (ImGui::MenuItem("Close Console"))
-                *p_open = false;
+                p_open = false;
             ImGui::EndPopup();
         }
 

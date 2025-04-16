@@ -8,13 +8,6 @@
 #include "drawStrategy.h"
 #include "outputStrategy.h"
 
-/*
-*   Usage:
-*   static insight_plus::console my_log;
-*   my_log.AddLog("Hello %d world", 123);
-*   my_log.Draw("title");
-*/ 
-
 // Forward declarations
 class ImGuiInputTextCallbackData;
 
@@ -62,10 +55,10 @@ namespace insight_plus
 
         void ShowConsole2();
 
+
+        // Todo: Remove?
         Buffer               Buf;
-        //TextFilter           Filter;
-        std::vector<int>     LineOffsets; // Index to lines offset. We maintain this with AddLog() calls.
-        //bool                 AutoScroll;  // Keep scrolling if already at the bottom.
+        std::vector<int>     LineOffsets; // Index to lines offset. We maintain this with AddLog
 
         char                     InputBuf[256];
         std::vector<char*>       Items;
